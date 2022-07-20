@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -86,5 +87,18 @@ class UsersController < ApplicationController
 
     flash[:danger] = t ".alert_user"
     redirect_to root_path
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = t ".login_message"
+      redirect_to login_url
+    end
+  end
+
+  def correct_user
+    @user = User.find params[:id]
+    redirect_to root_url unless current_user?(@user)
   end
 end
