@@ -75,6 +75,10 @@ en:
       update_message: "Updated!"
     create:
       alert: "Check your mail please!!!"
+    unfollow:
+      unfollow: "Unfollow"
+    follow:
+      follow: "Follow"
   layouts:
     header:
       title: "Sample App"

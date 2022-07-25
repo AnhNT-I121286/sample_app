@@ -53,6 +53,20 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @title = t ".following_title"
+    @user = User.find(params[:id])
+    @pagy, @users = pagy User.order("id ASC"), items: Settings.index.items
+    render :show_follow
+  end
+
+  def followers
+    @title = t ".follower_title"
+    @user = User.find(params[:id])
+    @pagy, @users = pagy User.order("id ASC"), items: Settings.index.items
+    render :show_follow
+  end
+
   private
 
   def user_params
