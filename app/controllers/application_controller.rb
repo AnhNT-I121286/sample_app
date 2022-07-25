@@ -24,4 +24,14 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t ".logged_in_alert"
     redirect_to login_url
   end
+
+  private
+
+  def logged_in_user
+    unless logged_in?
+    store_location
+    flash[:danger] = t ".logged_in_alert"
+    redirect_to login_url
+    end
+  end
 end
