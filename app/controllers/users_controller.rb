@@ -56,14 +56,14 @@ class UsersController < ApplicationController
   def following
     @title = t ".following_title"
     @user = User.find(params[:id])
-    @pagy, @users = pagy User.order("id ASC"), items: Settings.index.items
+    @pagy, @users = pagy @user.following.order("id ASC"), items: Settings.index.items
     render :show_follow
   end
 
   def followers
     @title = t ".follower_title"
     @user = User.find(params[:id])
-    @pagy, @users = pagy User.order("id ASC"), items: Settings.index.items
+    @pagy, @users = pagy @user.followers.order("id ASC"), items: Settings.index.items
     render :show_follow
   end
 
