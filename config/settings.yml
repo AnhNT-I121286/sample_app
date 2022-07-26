@@ -30,3 +30,5 @@ micropost:
   less_than: 5
 user_helper:
   gavartar_size: 80
+follow_form:
+  gavartar_size: 30
